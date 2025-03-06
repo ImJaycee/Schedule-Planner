@@ -10,24 +10,23 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null); // Clear previous errors
-
+    setError(""); // Clear previous errors
+  
     try {
       const response = await axios.post("http://localhost:4000/api/auth/login", {
-        email,
-        password,
+        email, 
+        password
       });
 
-      if (response.data.success) {
-        alert("Login successful!");
-        // Redirect the user or store a token in localStorage here
-      }
+      // Store tokens in localStorage
+      localStorage.setItem("accessToken", response.data.accessToken);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+
+      console.log(localStorage.getItem("user"));
+
+      window.location.href = "/homepage"; // Redirect after login
     } catch (err) {
-      if (err.response && err.response.data) {
-        setError(err.response.data.message || "Login failed. Please try again.");
-      } else {
-        setError("Server error. Please try again later.");
-      }
+      setError("Invalid credentials. Please try again.");
     }
   };
 

@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import authRoute from './routes/auth.js';
 import userRoute from './routes/userRoute.js';
+import shiftRoute from './routes/scheduleRoute.js';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
@@ -30,6 +31,7 @@ app.use(cors())
 //routes
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
+app.use("/api/shift", shiftRoute);
 
 
 app.use((err, req, res, next) =>{

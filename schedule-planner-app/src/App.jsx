@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
-import RegisterForm from './pages/RegistrationForm'
-import AdminRegistrationForm from './pages/AdminRegistrationForm'
+import RegisterForm from './pages/RegistrationForm';
+import AdminRegistrationForm from './pages/AdminRegistrationForm';
 import Login from './pages/Login';
+import Dashboard from './pages/Dashboard' 
+
+
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
 
         {/* Admin Registration Page - Only accessible via URL */}
         <Route path="/admin/register" element={<AdminRegistrationForm />} />
+
+         {/* dashboard */}
+         <Route path="/homepage" element={<Dashboard />} />
 
 
       </Routes>

@@ -107,16 +107,21 @@ const RegisterForm = () => {
 
               <div>
                 <label className="text-sm font-medium text-gray-700">Department</label>
-                <input
-                  type="text"
+                <select
                   name="department"
-                  placeholder="Select Department"
                   value={formData.department}
                   onChange={handleChange}
                   className="p-2 border rounded w-full"
-                />
+                >
+                  <option value="">Select Department</option>
+                  <option value="Technical">Technical</option>
+                  <option value=" IT Support">IT Support</option>
+                  <option value="Sales & Marketing">Sales & Marketing</option>
+                  <option value="Research">Research</option>
+                </select>
                 {errors.department && <p className="text-red-500 text-sm">{errors.department}</p>}
               </div>
+
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
